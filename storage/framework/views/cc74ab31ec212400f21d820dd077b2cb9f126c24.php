@@ -1,0 +1,2 @@
+
+<?php echo $__env->make("layout.theme", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH C:\programing\xampp\htdocs\laravel\blog\resources\views/welcome.blade.php ENDPATH**/ ?>
