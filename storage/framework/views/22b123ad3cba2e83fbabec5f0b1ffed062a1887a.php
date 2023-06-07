@@ -1,17 +1,17 @@
-@extends("layout.theme");
+;
 
-@section('title')
+<?php $__env->startSection('title'); ?>
 Edit Laravel Article
-@endsection('title')
+<?php $__env->stopSection(); ?>
 
-@section('content')
+<?php $__env->startSection('content'); ?>
     <form 
         method="post"
-        action="/articles/{{$article->id}}"
+        action="/articles/<?php echo e($article->id); ?>"
     >
-        {{-- cross-site request forgery --}}
-        @csrf
-        @method("PUT")
+        
+        <?php echo csrf_field(); ?>
+        <?php echo method_field("PUT"); ?>
         
         <div class="form-group">
             <label for="title">Article Title</label>
@@ -19,7 +19,7 @@ Edit Laravel Article
                 type="text" 
                 class="form-control" 
                 name="title"
-                value="{{$article->title}}"
+                value="<?php echo e($article->title); ?>"
             >
         </div>
 
@@ -31,7 +31,8 @@ Edit Laravel Article
                 cols="30"
                 rows="3"
                 class="form-control"
-            >{{$article->body}}
+            ><?php echo e($article->body); ?>
+
             </textarea>
         </div>
 
@@ -52,4 +53,5 @@ Edit Laravel Article
         </a>
     </div>
     
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.theme", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/ioss/Documents/j/laravel_blog-main/resources/views/articles/edit.blade.php ENDPATH**/ ?>

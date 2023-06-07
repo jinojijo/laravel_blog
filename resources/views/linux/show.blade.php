@@ -1,21 +1,21 @@
 @extends("layout.theme");
 
 @section('title')
-Laravel Article
+Linux Article
 @endsection('title')
 
 @section('content')
 
-    <a href="/articles">View All Articles</a>
+    <a href="/linux">View All Articles</a>
     <h1>
-        {{$article->title}}
+        {{$linux->title}}
     </h1>
 
     <p>
-        {{$article->body}}
+        {{$linux->body}}
     </p>
 
-    <form action="/articles/{{$article->id}}" method="post">
+    <form action="/linux/{{$linux->id}}" method="post">
 
         @csrf
         @method("DELETE")

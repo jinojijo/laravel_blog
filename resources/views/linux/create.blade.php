@@ -1,14 +1,14 @@
 @extends("layout.theme");
 
 @section('title')
-Add Laravel Article
+Create Linux Article
 @endsection('title')
 
 
 @section('content')
     <form 
         method="post"
-        action="/articles"
+        action="/linux"
     >
         @csrf
         <div class="form-group">
@@ -54,13 +54,14 @@ Add Laravel Article
             <button class="btn btn-primary">
                 Save
             </button>
+            
         </div>
     </form>
 
     <div class="form-group">
         <a 
             class="btn btn-primary"
-            href="/articles"
+            href="/linux"
         >
             Cancel
         </a>

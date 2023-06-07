@@ -38,6 +38,10 @@ Route::get('/contact', function()
 Route::get('/contact/{id}', 'App\Http\Controllers\ContactController@index');
 
 
+
+
+
+// articles
 Route::get("/articles","App\Http\Controllers\ArticleCtrl@index");
 
 Route::get("/articles/create","App\Http\Controllers\ArticleCtrl@create");
@@ -45,21 +49,53 @@ Route::get("/articles/create","App\Http\Controllers\ArticleCtrl@create");
 Route::post("/articles","App\Http\Controllers\ArticleCtrl@store");
 
 Route::get(
-        "/articles/{article_id}",
+        "/articles/{linux_id}",
         "App\Http\Controllers\ArticleCtrl@show"
     );
 
 Route::get(
-        "/articles/{article_id}/edit",
+        "/articles/{linux_id}/edit",
         "App\Http\Controllers\ArticleCtrl@edit"
     );
 
 Route::put(
-        "/articles/{article_id}",
+        "/articles/{linux_id}",
         "App\Http\Controllers\ArticleCtrl@update"
     );
 
 Route::delete(
-        "/articles/{article_id}",
+        "/articles/{linux_id}",
         "App\Http\Controllers\ArticleCtrl@destroy"
+    );
+
+
+
+
+
+
+//linux
+Route::get("/linux","App\Http\Controllers\LinuxCtrl@index");
+
+Route::get("/linux/create","App\Http\Controllers\LinuxCtrl@create");
+
+Route::post("/linux","App\Http\Controllers\LinuxCtrl@store");
+
+Route::get(
+        "/linux/{article_id}",
+        "App\Http\Controllers\LinuxCtrl@show"
+    );
+
+Route::get(
+        "/linux/{article_id}/edit",
+        "App\Http\Controllers\LinuxCtrl@edit"
+    );
+
+Route::put(
+        "/linux/{article_id}",
+        "App\Http\Controllers\LinuxCtrl@update"
+    );
+
+Route::delete(
+        "/linux/{article_id}",
+        "App\Http\Controllers\LinuxCtrl@destroy"
     );
