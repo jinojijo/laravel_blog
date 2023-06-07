@@ -188,7 +188,7 @@
 
     <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
       <h1 class="display-4 fw-normal">
-        @yield('title')
+        <?php echo $__env->yieldContent('title'); ?>
       </h1>
       <p class="fs-5 text-body-secondary">
         Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
@@ -198,7 +198,7 @@
 
   <main>
   
-    @yield('content')
+    <?php echo $__env->yieldContent('content'); ?>
 
     
   </main>
@@ -212,3 +212,4 @@
   
   </body>
 </html>
+<?php /**PATH /home/ioss/Documents/j/laravel_blog-main/resources/views/layout/theme.blade.php ENDPATH**/ ?>

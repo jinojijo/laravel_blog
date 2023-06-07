@@ -1,6 +1,6 @@
-@extends("layout.theme");
+;
 
-@section('content')
+<?php $__env->startSection('content'); ?>
 
         <div class="row">
             <div class="col-md-3 alert alert-primary" role="alert">
@@ -18,4 +18,5 @@
             </div>
       </div>
     
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make("layout.theme", \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH /home/ioss/Documents/j/laravel_blog-main/resources/views/welcome.blade.php ENDPATH**/ ?>

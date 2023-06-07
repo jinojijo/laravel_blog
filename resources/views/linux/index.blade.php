@@ -1,12 +1,13 @@
 @extends('layout.theme');
 
 @section('title')
-Laravel Articles
+Linux Articles
 @endsection('title')
+
 
 @section('content')
     
-    <a href="articles/create">Add new Article</a>
+    <a href="linux/create">Add new Article</a>
     <div class="table-responsive">
         <table class="table text-center">
             <thead>
@@ -20,14 +21,14 @@ Laravel Articles
             
             <tbody>
                 @php($sr_no = 1)
-                @foreach ($articles as $item)
+                @foreach ($linux as $item)
                 
                     <tr>
                         <td>
                             {{$sr_no;}}
                         </td>
                         <td>
-                            <a href="/articles/{{$item->id}}">
+                            <a href="/linux/{{$item->id}}">
                                 {{$item->title}}
                             </a>
                         </td>
@@ -37,7 +38,7 @@ Laravel Articles
 
                         <td>
                             <a 
-                                href="/articles/{{$item->id}}/edit"
+                                href="/linux/{{$item->id}}/edit"
                                 class="btn btn-warning"
                             >
                                 Edit
