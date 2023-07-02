@@ -103,3 +103,25 @@ public function save(Request $request)
         });
     });
 </script>
+
+
+use Illuminate\Support\Facades\Http;
+public function makeApiCall()
+{
+    try {
+        $response = Http::get('https://api.example.com/endpoint');
+        $data = $response->json();
+
+        foreach ($data['items'] as $item) {
+            $title = $item['title'];
+            $description = $item['description'];
+        }
+
+        $modifiedResponse = Http::post('https://api.example.com/another-endpoint', $data);
+        $modifiedData = $modifiedResponse->json();
+        return response()->json($modifiedData);
+    } catch (\Exception $e) {
+        // Handle the API call error
+        return response()->json(['error' => 'An error occurred while making the API call'], 500);
+    }
+}
