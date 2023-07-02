@@ -1,0 +1,96 @@
+public function save(Request $request)
+  {
+      if($request->selected_users == null)
+          dd($request->selected_users);
+      else
+          dd($request->selected_users[0]);
+  }
+
+
+@section("content")
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.2/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.2/js/jquery.dataTables.min.js"></script>
+
+    <div>
+        <label for="toggle">Toggle Switch:</label>
+        <input id="toggle" type="checkbox" role="switch" checked>        
+    </div>
+
+    {{-- <div class="input-container" style="display: none;">
+        <div class="input-group mb-3">
+            <div class="input-group-text">
+                <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+            </div>
+            <input type="text" class="form-control" aria-label="Text input with checkbox">
+            </div>
+        </div>
+    </div> --}}
+
+    <form
+        method="post"
+        action="/new"
+    >
+        @csrf
+    <div class="input-container" style="display: none;">
+        <table id="users-table" class="display">
+            <thead>
+                <tr>
+                    <th>Select</th>
+                    <th>Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($users as $user)
+                    <tr>
+                        <td style="width: 10%;">
+                            <input type="checkbox" name="selected_users[]" value="{{ $user->id }}">
+                        </td>
+                        <td>{{ $user->title }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary">
+                Save
+            </button>
+        </div>
+    </form>
+    
+@endsection
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#toggle').on('change', function() {
+            if ($(this).is(':checked')) {
+                $('.input-container').hide();
+            } else {
+                $('.input-container').show();
+            }
+        });
+    });
+
+
+    $(document).ready(function() {
+        // Initialize DataTables
+        var table = $('#users-table').DataTable();
+
+        // Enable searching based on username column
+        table.columns(1).every(function() {
+            var column = this;
+
+            // Add a search input element
+            // var searchInput = $('<input type="text" placeholder="Search username">')
+            //     .appendTo($(column.header()))
+            //     .on('keyup change', function() {
+            //         column.search($(this).val(), false, false, true).draw();
+            //     });
+        });
+    });
+</script>
