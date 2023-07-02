@@ -1,10 +1,19 @@
 public function save(Request $request)
-  {
-      if($request->selected_users == null)
-          dd($request->selected_users);
-      else
-          dd($request->selected_users[0]);
-  }
+{
+    DB::beginTransaction();
+    try
+    {
+        if($request->selected_users == null)
+            dd($request->selected_users);
+        else
+            dd($request->selected_users[0]);
+        DB::commit();
+    }
+    catch (\Exception $e) 
+    {
+        DB::rollback();
+    }
+}
 
 
 @section("content")
